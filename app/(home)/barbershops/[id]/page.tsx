@@ -4,6 +4,7 @@ import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import BarbershopInfo from "./_components/barbershop-info";
 import ServiceItem from "./_components/service-item";
+import { Service } from "@prisma/client/edge";
 
 interface BarbershopDetailsPageProps {
   params: {
@@ -30,7 +31,7 @@ const BarbershopDetailsPage = async ({
     <>
       <BarbershopInfo barbershop={barbershop} />
       <div className="px-5 py-6 flex flex-col gap-4">
-        {barbershop.services.map((service) => (
+        {barbershop.services.map((service: Service) => (
           <ServiceItem service={service} key={service.id} />
         ))}
       </div>

@@ -6,6 +6,7 @@ import BookingItem from "../_components/booking-item";
 import BarbershopItem from "./_components/barbershop-item";
 import { db } from "../_lib/prisma";
 import { Barbershop } from "@prisma/client/edge";
+import { Suspense } from "react";
 
 export default async function Home() {
   const barbershops = await db.barbershop.findMany({});
